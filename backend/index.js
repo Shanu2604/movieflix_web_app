@@ -13,6 +13,7 @@ dotenv.config({
 });
 
 const app = express();
+const port = process.env.PORT || 4000;
 //middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -26,6 +27,6 @@ app.use(cors(corsOptions));
 // api
 app.use("/api/v1/user", userRoute);
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server is listening at port ${process.env.PORT}`);
+app.listen(port, () => {
+  console.log(`Server is listening at port ${port}`);
 });
